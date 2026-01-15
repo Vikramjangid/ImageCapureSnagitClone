@@ -73,8 +73,8 @@ class EditorWindow(QMainWindow):
         
     def show_help(self):
         from ui.help_dialog import HelpDialog
-        from utils.help_text import FAQ_TEXT
-        dlg = HelpDialog("Quick Start Guide", FAQ_TEXT, self)
+        from utils.help_text import FAQ_TEXT, ABOUT_TEXT
+        dlg = HelpDialog("Quick Start Guide", FAQ_TEXT + "\n\n" + ABOUT_TEXT, self)
         dlg.exec()
         
     def start_crop(self):
