@@ -27,7 +27,7 @@ jobs:
       run: |
         # --onefile is often better for simple distribution on Mac, but respecting onedir decision
         # Use ':' separator for add-data on Unix/Mac
-        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --icon=logo.png --add-data "logo.png:." --paths src src/main.py
+        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --icon=icon.png --add-data "icon.png:." --paths src src/main.py
 
     - name: Create DMG
       run: |

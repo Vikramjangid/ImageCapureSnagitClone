@@ -11,10 +11,10 @@ class EditorWindow(QMainWindow):
         
         # Set Window Icon
         import os
-        # Try to find logo.png relative to this file or CWD
+        # Try to find icon.png relative to this file or CWD
         possible_paths = [
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "logo.png")),
-            "logo.png"
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "icon.png")),
+            "icon.png"
         ]
         for path in possible_paths:
             if os.path.exists(path):

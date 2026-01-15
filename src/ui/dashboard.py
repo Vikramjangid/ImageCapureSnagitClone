@@ -13,10 +13,10 @@ class Dashboard(QMainWindow):
         
         # Set Window Icon
         import os
-        icon_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "logo.png"))
+        icon_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "icon.png"))
         if not os.path.exists(icon_path):
              # Fallback for frozen app where it might be in root or temp
-             icon_path = "logo.png"
+             icon_path = "icon.png"
              
         self.setWindowIcon(QIcon(icon_path))
         self.icon_path = icon_path # Store for tray use

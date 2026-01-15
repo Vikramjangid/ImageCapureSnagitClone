@@ -38,7 +38,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "dist\OpenCapture\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "dist\OpenCapture\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-Source: "dist\OpenCapture\logo.png"; DestDir: "{app}"; Flags: ignoreversion
+Source: "dist\OpenCapture\icon.png"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
