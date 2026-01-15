@@ -32,8 +32,13 @@ jobs:
       run: |
         pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --paths src src/main.py
 
+    - name: Compile Installer with Inno Setup
+      uses: Minionguyjosh/inno-setup-action@v1.2.2
+      with:
+        path: setup.iss
+
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: OpenCapture-Windows-x64
-        path: dist/OpenCapture
+        name: OpenCapture-Windows-Setup
+        path: Output/OpenCapture-Setup.exe

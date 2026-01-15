@@ -32,8 +32,24 @@ jobs:
         # --onefile is often better for simple distribution on Mac, but respecting onedir decision
         pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --paths src src/main.py
 
+    - name: Create DMG
+      run: |
+        brew install create-dmg
+        mkdir -p dist/dmg
+        create-dmg \
+          --volname "OpenCapture" \
+          --volicon "dist/OpenCapture.app/Contents/Resources/icon-windowed.icns" \
+          --window-pos 200 120 \
+          --window-size 800 400 \
+          --icon-size 100 \
+          --icon "OpenCapture.app" 200 190 \
+          --hide-extension "OpenCapture.app" \
+          --app-drop-link 600 185 \
+          "dist/dmg/OpenCapture-Installer.dmg" \
+          "dist/OpenCapture.app"
+
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: OpenCapture-MacOS-Intel
-        path: dist/OpenCapture.app
+        name: OpenCapture-MacOS-Intel-DMG
+        path: dist/dmg/OpenCapture-Installer.dmg
