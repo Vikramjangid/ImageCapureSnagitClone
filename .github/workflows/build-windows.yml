@@ -26,7 +26,7 @@ jobs:
     - name: Build with PyInstaller
       # Matches the manual build_exe.bat logic but adjusted for CI
       run: |
-        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --paths src src/main.py
+        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --icon=logo.png --add-data "logo.png;." --paths src src/main.py
 
     - name: Compile Installer with Inno Setup
       uses: Minionguyjpro/Inno-Setup-Action@v1.2.2

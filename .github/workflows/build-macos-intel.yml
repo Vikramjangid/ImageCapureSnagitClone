@@ -26,7 +26,8 @@ jobs:
     - name: Build with PyInstaller
       run: |
         # --onefile is often better for simple distribution on Mac, but respecting onedir decision
-        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --paths src src/main.py
+        # Use ':' separator for add-data on Unix/Mac
+        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --icon=logo.png --add-data "logo.png:." --paths src src/main.py
 
     - name: Create DMG
       run: |

@@ -9,6 +9,18 @@ class EditorWindow(QMainWindow):
         self.setWindowTitle("Snagit Editor - Developed by : Vikram Jangid (vikramjangid11@gmail.com)")
         self.resize(1200, 800)
         
+        # Set Window Icon
+        import os
+        # Try to find logo.png relative to this file or CWD
+        possible_paths = [
+            os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "logo.png")),
+            "logo.png"
+        ]
+        for path in possible_paths:
+            if os.path.exists(path):
+                self.setWindowIcon(QIcon(path))
+                break
+        
         self.canvas = EditorCanvas()
         self.setCentralWidget(self.canvas)
         

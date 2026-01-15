@@ -10,6 +10,17 @@ class Dashboard(QMainWindow):
         super().__init__()
         self.setWindowTitle("OpenCapture - Developed by : Vikram Jangid (vikramjangid11@gmail.com)")
         self.resize(400, 500)
+        
+        # Set Window Icon
+        import os
+        icon_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "logo.png"))
+        if not os.path.exists(icon_path):
+             # Fallback for frozen app where it might be in root or temp
+             icon_path = "logo.png"
+             
+        self.setWindowIcon(QIcon(icon_path))
+        self.icon_path = icon_path # Store for tray use
+
         self.init_ui()
         self.init_tray()
 
@@ -87,7 +98,11 @@ class Dashboard(QMainWindow):
     def init_tray(self):
         self.tray_icon = QSystemTrayIcon(self)
         from PySide6.QtWidgets import QStyle
-        self.tray_icon.setIcon(self.style().standardIcon(QStyle.SP_ComputerIcon))
+        # Use logo if available, else fallback
+        if hasattr(self, 'icon_path') and self.icon_path:
+             self.tray_icon.setIcon(QIcon(self.icon_path))
+        else:
+             self.tray_icon.setIcon(self.style().standardIcon(QStyle.SP_ComputerIcon))
         
         menu = QMenu()
 

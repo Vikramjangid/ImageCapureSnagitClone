@@ -25,7 +25,7 @@ jobs:
 
     - name: Build with PyInstaller
       run: |
-        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --paths src src/main.py
+        pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --icon=logo.png --add-data "logo.png:." --paths src src/main.py
 
     - name: Create DMG
       run: |
