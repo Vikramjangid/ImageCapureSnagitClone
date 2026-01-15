@@ -27,6 +27,8 @@ jobs:
       # Matches the manual build_exe.bat logic but adjusted for CI
       run: |
         pyinstaller --noconfirm --onedir --windowed --name "OpenCapture" --icon=icon.png --add-data "icon.png;." --paths src src/main.py
+        # Explicitly copy icon.png to dist for Inno Setup to find it, just in case PyInstaller put it inside the internal folder
+        copy icon.png dist\OpenCapture\icon.png
 
     - name: Compile Installer with Inno Setup
       uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
